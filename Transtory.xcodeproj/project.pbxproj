@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C5B10FE1AF413A500145AE4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B10FD1AF413A500145AE4 /* AppDelegate.swift */; };
+		2C5B11011AF413A500145AE4 /* Transtory.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B10FF1AF413A500145AE4 /* Transtory.xcdatamodeld */; };
+		2C5B11031AF413A500145AE4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B11021AF413A500145AE4 /* ViewController.swift */; };
+		2C5B11061AF413A500145AE4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C5B11041AF413A500145AE4 /* Main.storyboard */; };
+		2C5B11081AF413A500145AE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C5B11071AF413A500145AE4 /* Images.xcassets */; };
+		2C5B110B1AF413A500145AE4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5B11091AF413A500145AE4 /* LaunchScreen.xib */; };
+		2C5B11171AF413A500145AE4 /* TranstoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B11161AF413A500145AE4 /* TranstoryTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2C5B11111AF413A500145AE4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2C5B10F01AF413A500145AE4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2C5B10F71AF413A500145AE4;
+			remoteInfo = Transtory;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2C5B10F81AF413A500145AE4 /* Transtory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Transtory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C5B10FC1AF413A500145AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C5B10FD1AF413A500145AE4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C5B11001AF413A500145AE4 /* Transtory.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transtory.xcdatamodel; sourceTree = "<group>"; };
+		2C5B11021AF413A500145AE4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2C5B11051AF413A500145AE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C5B11071AF413A500145AE4 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		2C5B110A1AF413A500145AE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		2C5B11101AF413A500145AE4 /* TranstoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranstoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C5B11151AF413A500145AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C5B11161AF413A500145AE4 /* TranstoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranstoryTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C5B10F51AF413A500145AE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C5B110D1AF413A500145AE4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C5B10EF1AF413A500145AE4 = {
+			isa = PBXGroup;
+			children = (
+				2C5B10FA1AF413A500145AE4 /* Transtory */,
+				2C5B11131AF413A500145AE4 /* TranstoryTests */,
+				2C5B10F91AF413A500145AE4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2C5B10F91AF413A500145AE4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C5B10F81AF413A500145AE4 /* Transtory.app */,
+				2C5B11101AF413A500145AE4 /* TranstoryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C5B10FA1AF413A500145AE4 /* Transtory */ = {
+			isa = PBXGroup;
+			children = (
+				2C5B10FD1AF413A500145AE4 /* AppDelegate.swift */,
+				2C5B11021AF413A500145AE4 /* ViewController.swift */,
+				2C5B11041AF413A500145AE4 /* Main.storyboard */,
+				2C5B11071AF413A500145AE4 /* Images.xcassets */,
+				2C5B11091AF413A500145AE4 /* LaunchScreen.xib */,
+				2C5B10FF1AF413A500145AE4 /* Transtory.xcdatamodeld */,
+				2C5B10FB1AF413A500145AE4 /* Supporting Files */,
+			);
+			path = Transtory;
+			sourceTree = "<group>";
+		};
+		2C5B10FB1AF413A500145AE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C5B10FC1AF413A500145AE4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2C5B11131AF413A500145AE4 /* TranstoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				2C5B11161AF413A500145AE4 /* TranstoryTests.swift */,
+				2C5B11141AF413A500145AE4 /* Supporting Files */,
+			);
+			path = TranstoryTests;
+			sourceTree = "<group>";
+		};
+		2C5B11141AF413A500145AE4 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2C5B11151AF413A500145AE4 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C5B10F71AF413A500145AE4 /* Transtory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C5B111A1AF413A500145AE4 /* Build configuration list for PBXNativeTarget "Transtory" */;
+			buildPhases = (
+				2C5B10F41AF413A500145AE4 /* Sources */,
+				2C5B10F51AF413A500145AE4 /* Frameworks */,
+				2C5B10F61AF413A500145AE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Transtory;
+			productName = Transtory;
+			productReference = 2C5B10F81AF413A500145AE4 /* Transtory.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2C5B110F1AF413A500145AE4 /* TranstoryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C5B111D1AF413A500145AE4 /* Build configuration list for PBXNativeTarget "TranstoryTests" */;
+			buildPhases = (
+				2C5B110C1AF413A500145AE4 /* Sources */,
+				2C5B110D1AF413A500145AE4 /* Frameworks */,
+				2C5B110E1AF413A500145AE4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2C5B11121AF413A500145AE4 /* PBXTargetDependency */,
+			);
+			name = TranstoryTests;
+			productName = TranstoryTests;
+			productReference = 2C5B11101AF413A500145AE4 /* TranstoryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C5B10F01AF413A500145AE4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Out App";
+				TargetAttributes = {
+					2C5B10F71AF413A500145AE4 = {
+						CreatedOnToolsVersion = 6.3.1;
+					};
+					2C5B110F1AF413A500145AE4 = {
+						CreatedOnToolsVersion = 6.3.1;
+						TestTargetID = 2C5B10F71AF413A500145AE4;
+					};
+				};
+			};
+			buildConfigurationList = 2C5B10F31AF413A500145AE4 /* Build configuration list for PBXProject "Transtory" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2C5B10EF1AF413A500145AE4;
+			productRefGroup = 2C5B10F91AF413A500145AE4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C5B10F71AF413A500145AE4 /* Transtory */,
+				2C5B110F1AF413A500145AE4 /* TranstoryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C5B10F61AF413A500145AE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C5B11061AF413A500145AE4 /* Main.storyboard in Resources */,
+				2C5B110B1AF413A500145AE4 /* LaunchScreen.xib in Resources */,
+				2C5B11081AF413A500145AE4 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C5B110E1AF413A500145AE4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C5B10F41AF413A500145AE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C5B11031AF413A500145AE4 /* ViewController.swift in Sources */,
+				2C5B11011AF413A500145AE4 /* Transtory.xcdatamodeld in Sources */,
+				2C5B10FE1AF413A500145AE4 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C5B110C1AF413A500145AE4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C5B11171AF413A500145AE4 /* TranstoryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C5B11121AF413A500145AE4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2C5B10F71AF413A500145AE4 /* Transtory */;
+			targetProxy = 2C5B11111AF413A500145AE4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2C5B11041AF413A500145AE4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C5B11051AF413A500145AE4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2C5B11091AF413A500145AE4 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C5B110A1AF413A500145AE4 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C5B11181AF413A500145AE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2C5B11191AF413A500145AE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C5B111B1AF413A500145AE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Transtory/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2C5B111C1AF413A500145AE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Transtory/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2C5B111E1AF413A500145AE4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TranstoryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transtory.app/Transtory";
+			};
+			name = Debug;
+		};
+		2C5B111F1AF413A500145AE4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = TranstoryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Transtory.app/Transtory";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C5B10F31AF413A500145AE4 /* Build configuration list for PBXProject "Transtory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C5B11181AF413A500145AE4 /* Debug */,
+				2C5B11191AF413A500145AE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C5B111A1AF413A500145AE4 /* Build configuration list for PBXNativeTarget "Transtory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C5B111B1AF413A500145AE4 /* Debug */,
+				2C5B111C1AF413A500145AE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2C5B111D1AF413A500145AE4 /* Build configuration list for PBXNativeTarget "TranstoryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C5B111E1AF413A500145AE4 /* Debug */,
+				2C5B111F1AF413A500145AE4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2C5B10FF1AF413A500145AE4 /* Transtory.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2C5B11001AF413A500145AE4 /* Transtory.xcdatamodel */,
+			);
+			currentVersion = 2C5B11001AF413A500145AE4 /* Transtory.xcdatamodel */;
+			path = Transtory.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2C5B10F01AF413A500145AE4 /* Project object */;
+}
