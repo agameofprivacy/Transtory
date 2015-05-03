@@ -30,6 +30,7 @@
 		2CFE5F011AF56EB30056E109 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE5F001AF56EB30056E109 /* LoginViewController.swift */; };
 		2CFE5F031AF587200056E109 /* CapturedImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE5F021AF587200056E109 /* CapturedImageCollectionViewCell.swift */; };
 		2CFE5F051AF5A18E0056E109 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE5F041AF5A18E0056E109 /* StoryTableViewCell.swift */; };
+		2CFE5F071AF600D20056E109 /* ResourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE5F061AF600D20056E109 /* ResourceTableViewCell.swift */; };
 		5B643D00EA4F0F4ABAAAAB17 /* libPods-Transtory.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68C5545EEDD4CD7129458834 /* libPods-Transtory.a */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		2CFE5F001AF56EB30056E109 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2CFE5F021AF587200056E109 /* CapturedImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturedImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CFE5F041AF5A18E0056E109 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		2CFE5F061AF600D20056E109 /* ResourceTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceTableViewCell.swift; sourceTree = "<group>"; };
 		68C5545EEDD4CD7129458834 /* libPods-Transtory.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Transtory.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EF33851E7021C21F30CE130 /* Pods-Transtory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Transtory.release.xcconfig"; path = "Pods/Target Support Files/Pods-Transtory/Pods-Transtory.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				2C1694511AF4191600F3094C /* ResourcesTabViewController.swift */,
+				2CFE5F061AF600D20056E109 /* ResourceTableViewCell.swift */,
 				2C1694631AF422C800F3094C /* CategoriesViewController.swift */,
 			);
 			name = "Resources Tab";
@@ -361,6 +364,7 @@
 				2CFE5F031AF587200056E109 /* CapturedImageCollectionViewCell.swift in Sources */,
 				2C16946B1AF4263B00F3094C /* TranstoryTabBarViewController.swift in Sources */,
 				2C1694621AF422BB00F3094C /* NewChatViewController.swift in Sources */,
+				2CFE5F071AF600D20056E109 /* ResourceTableViewCell.swift in Sources */,
 				2C1694521AF4191600F3094C /* ResourcesTabViewController.swift in Sources */,
 				2C1694641AF422C800F3094C /* CategoriesViewController.swift in Sources */,
 				2C16945C1AF41EDE00F3094C /* NewStoryViewController.swift in Sources */,
