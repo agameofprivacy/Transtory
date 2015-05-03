@@ -1,0 +1,1 @@
+PODS_TRANSTORY_SHUIMAGEPICKERCONTROLLER_OTHER_LDFLAGS = -framework "AssetsLibrary" -framework "CoreGraphics" -framework "UIKit"

@@ -1,0 +1,36 @@
+PODS:
+  - Bolts (1.1.5):
+    - Bolts/AppLinks (= 1.1.5)
+    - Bolts/Tasks (= 1.1.5)
+  - Bolts/AppLinks (1.1.5):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.1.5)
+  - DateTools (1.5.0)
+  - GCPlaceholderTextView (1.0.1)
+  - LayerKit (0.12.1)
+  - MBProgressHUD (0.9.1)
+  - Parse (1.7.2):
+    - Bolts (~> 1.1)
+  - SHUImagePickerController (0.1.0)
+  - TPKeyboardAvoiding (1.2.6)
+
+DEPENDENCIES:
+  - DateTools
+  - GCPlaceholderTextView
+  - LayerKit
+  - MBProgressHUD
+  - Parse
+  - SHUImagePickerController
+  - TPKeyboardAvoiding
+
+SPEC CHECKSUMS:
+  Bolts: aac24961496d504aa56fc267cde95162a71bac39
+  DateTools: b93a2c2017747329c6077c7d7e8a75106e23d0d7
+  GCPlaceholderTextView: dec36f63092602c6b5df76e2ce43fa22671b9d12
+  LayerKit: 51aeffdfb99fa2ecb7ee88238ab630a1adbfdb20
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  Parse: e1959adb9fe2fcd4736dac20b3ac691d47a4f06c
+  SHUImagePickerController: 1de1155e000111e540de61bdbe3f675b4a3a81b3
+  TPKeyboardAvoiding: ee4dd35e3bb7bb64bfbda47e7cc9ba872ff10f77
+
+COCOAPODS: 0.36.4
