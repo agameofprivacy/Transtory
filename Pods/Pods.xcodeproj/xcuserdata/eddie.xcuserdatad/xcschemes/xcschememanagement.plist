@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-Transtory-Atlas-AtlasResource.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-Transtory-Atlas.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Transtory-Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -20,11 +30,6 @@
 			<false/>
 		</dict>
 		<key>Pods-Transtory-MBProgressHUD.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-Transtory-Parse.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -47,42 +52,47 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1BC66CDDF9D3778AF83A3DFF</key>
+		<key>0D0DD6C16171E99D03E6746A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>33F534E5B20B1090AB6EE111</key>
+		<key>2154A1887115B2816712C7C9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>36D9354153F5D53435B2EA2D</key>
+		<key>266902CDE3B0FC83FF436DA4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5C32FE38F6813EB59FBE57E7</key>
+		<key>2D081ED2267FDC0AFAC33428</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6EA8AB68004C90A35C317D61</key>
+		<key>7B8C814C43388AEA571D1FF5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>721E256C45F09D8A9AC851E3</key>
+		<key>9561A607BEA5B5EFC07B1BCE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8DDAAB4B139ECEC2A09339D2</key>
+		<key>96C800EE3786967F03D3D5EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D640D24182E46A15BFD43364</key>
+		<key>B1099114B35E1C2C39101916</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E0EBA62EEA2D5DED1187FAA8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

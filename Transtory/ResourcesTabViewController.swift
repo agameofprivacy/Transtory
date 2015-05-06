@@ -10,22 +10,23 @@ import UIKit
 
 class ResourcesTabViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var resourcesTableViewController:UITableViewController!
+    var resourcesTableViewController:UITableViewController = UITableViewController()
     var resources:[PFObject] = []
     var currentGeoPoint:PFGeoPoint!
     var emergencyServiceProvider:PFObject!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.resourcesTableViewController = UITableViewController()
+                
+        self.addChildViewController(self.resourcesTableViewController)
+        self.resourcesTableViewController.tableView = TPKeyboardAvoidingTableView(frame: self.view.frame)
         self.resourcesTableViewController.tableView.delegate = self
         self.resourcesTableViewController.tableView.dataSource = self
-        self.resourcesTableViewController.tableView = TPKeyboardAvoidingTableView(frame: self.view.frame)
+        self.resourcesTableViewController.tableView.rowHeight = UITableViewAutomaticDimension
+        self.resourcesTableViewController.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         self.resourcesTableViewController.tableView.registerClass(ResourceTableViewCell.self, forCellReuseIdentifier: "ResourceTableViewCell")
         self.view.addSubview(self.resourcesTableViewController.tableView)
         
-        self.addChildViewController(self.resourcesTableViewController)
         
         self.navigationItem.title = "Resources"
         
@@ -48,8 +49,12 @@ class ResourcesTabViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        if indexPath.section == 1{
-        var cell:ResourceTableViewCell = tableView.dequeueReusableCellWithIdentifier("ResourceTableViewCell") as! ResourceTableViewCell
+        if indexPath.section == 1 && !self.resources.isEmpty{
+            var resource = self.resources[indexPath.row] as PFObject
+            var cell = tableView.dequeueReusableCellWithIdentifier("ResourceTableViewCell") as! ResourceTableViewCell
+            cell.nameLabel.text = resource["name"] as? String
+            cell.descriptionLabel.text = resource["description"] as? String
+            cell.logoImageView.image = UIImage(named: (resource["logoImage"] as? String)!)
             return cell
         }
         else{
@@ -67,8 +72,43 @@ class ResourcesTabViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0{
+        if section == 1 && self.emergencyServiceProvider != nil{
             var view = UIView()
+            view.backgroundColor = UIColor(white: 0.95, alpha: 1)
+            var nameLabel = UILabel(frame: CGRectZero)
+            nameLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+            nameLabel.font = UIFont(name: "HelveticaNeue-Medium", size: 15.0)
+            nameLabel.textAlignment = NSTextAlignment.Center
+            nameLabel.numberOfLines = 1
+            nameLabel.text = self.emergencyServiceProvider["name"] as? String
+            view.addSubview(nameLabel)
+            
+            var descriptionLabel = UILabel(frame: CGRectZero)
+            descriptionLabel.setTranslatesAutoresizingMaskIntoConstraints(false)
+            descriptionLabel.font = UIFont(name: "HelveticaNeue-Light", size: 14.0)
+            descriptionLabel.textAlignment = NSTextAlignment.Left
+            descriptionLabel.numberOfLines = 0
+            descriptionLabel.preferredMaxLayoutWidth = (UIScreen.mainScreen().bounds.width - 30) / 2
+            descriptionLabel.text = self.emergencyServiceProvider["description"] as? String
+            view.addSubview(descriptionLabel)
+            
+            var callButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            callButton.frame = CGRectZero
+            callButton.setTranslatesAutoresizingMaskIntoConstraints(false)
+            callButton.setTitle("Call Now", forState: UIControlState.Normal)
+            callButton.layer.borderColor = UIColor(white: 0.85, alpha: 1).CGColor
+            callButton.layer.borderWidth = 0.75
+            callButton.layer.cornerRadius = 8
+            view.addSubview(callButton)
+            
+            var metricsDictionary = ["sideMargin":15]
+            var viewsDictionary = ["nameLabel":nameLabel, "descriptionLabel":descriptionLabel, "callButton":callButton]
+            
+            var horizontalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("H:|-sideMargin-[nameLabel]-sideMargin-|", options: NSLayoutFormatOptions(0), metrics: metricsDictionary, views: viewsDictionary)
+            view.addConstraints(horizontalConstraints)
+
+            var verticalConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-sideMargin-[nameLabel]-7.5-[descriptionLabel(50)]-15-[callButton]", options: NSLayoutFormatOptions.AlignAllLeft | NSLayoutFormatOptions.AlignAllRight, metrics: metricsDictionary, views: viewsDictionary)
+            view.addConstraints(verticalConstraints)
             return view
         }
         else{
@@ -77,16 +117,21 @@ class ResourcesTabViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0{
-            return 80
+        if section == 1{
+            return 150
         }
         else{
             return 0
         }
     }
+    
+    func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 200.0
+    }
 
     func locateButtonTapped(){
         println("Locate Button Tapped")
+        self.locateAndLoad()
     }
     
     func categoriesButtonTapped(){
@@ -96,15 +141,15 @@ class ResourcesTabViewController: UIViewController, UITableViewDelegate, UITable
 
     
     func locateAndLoad(){
-        PFGeoPoint.geoPointForCurrentLocationInBackground {
+        println("hello")
+        PFGeoPoint.geoPointForCurrentLocationInBackground({
             (geoPoint, error) -> Void in
             if error == nil {
+                println("hello")
                 self.currentGeoPoint = geoPoint
-                
+                println(self.currentGeoPoint)
                 // do something with the new geoPoint
                 var emergencyServiceProviderQuery = PFQuery(className: "Organization")
-                //                emergencyServiceProviderQuery.whereKey("city", equalTo: PFUser.currentUser()["city"])
-                //                emergencyServiceProviderQuery.whereKey("state", equalTo: PFUser.currentUser()["state"])
                 emergencyServiceProviderQuery.whereKey("type", equalTo: "crisis-handling")
                 emergencyServiceProviderQuery.limit = 1
                 emergencyServiceProviderQuery.findObjectsInBackgroundWithBlock{
@@ -122,7 +167,9 @@ class ResourcesTabViewController: UIViewController, UITableViewDelegate, UITable
                             if error == nil{
                                 self.resources.removeAll(keepCapacity: false)
                                 self.resources = objects as! [PFObject]
-                                self.resourcesTableViewController.tableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, 2)), withRowAnimation: UITableViewRowAnimation.Automatic)
+                                println(self.resources)
+//                                self.resourcesTableViewController.tableView.reloadSections(NSIndexSet(indexesInRange: NSMakeRange(0, 2)), withRowAnimation: UITableViewRowAnimation.Automatic)
+                                self.resourcesTableViewController.tableView.reloadData()
                             }
                             else{
                                 println("second failure")
@@ -137,8 +184,10 @@ class ResourcesTabViewController: UIViewController, UITableViewDelegate, UITable
             }
             else{
                 println("can't find location")
+                println(error)
                 //                self.resourcesTableViewController.refreshControl!.endRefreshing()
             }
-        }
+        })
+        println("done")
     }
 }

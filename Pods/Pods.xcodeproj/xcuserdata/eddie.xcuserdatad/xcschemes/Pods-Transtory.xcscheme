@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "33F534E5B20B1090AB6EE111"
+               BlueprintIdentifier = "E0EBA62EEA2D5DED1187FAA8"
                BuildableName = "libPods-Transtory.a"
                BlueprintName = "Pods-Transtory"
                ReferencedContainer = "container:Pods.xcodeproj">

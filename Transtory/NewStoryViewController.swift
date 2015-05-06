@@ -39,7 +39,7 @@ class NewStoryViewController: UIViewController, UIScrollViewDelegate, UICollecti
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.title = "New Story"
+        self.navigationItem.title = "Transtory"
         
         var dismissButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.Plain, target: self, action: "dismissButtonTapped")
         self.navigationItem.leftBarButtonItem = dismissButton
@@ -315,81 +315,137 @@ class NewStoryViewController: UIViewController, UIScrollViewDelegate, UICollecti
         self.navigationItem.rightBarButtonItem?.enabled = false
         self.navigationItem.leftBarButtonItem?.enabled = false
         println("Publish Button Tapped")
-        var newStory = PFObject(className: "Story")
-        newStory["author"] = PFUser.currentUser()
-        if self.storyTextView.text == nil{
-            newStory["storyText"] = ""
+        
+        // Create array of image pfobjects.
+        for image in self.imageArray{
+            var imageObject = PFObject(className: "Image")
+            imageObject["author"] = PFUser.currentUser()
+            imageObject["imageFile"] = PFFile(data:UIImagePNGRepresentation(image as! UIImage))
+            self.imagePFObjectArray.addObject(imageObject)
         }
-        else{
-            newStory["storyText"] = self.storyTextView.text
-        }
-        newStory.saveInBackgroundWithBlock({
+        self.saveImageObjectOnParse(self.imagePFObjectArray.firstObject as! PFObject)
+        
+        // Call save image pfobject function inside saveObjectInBackground, passing in current count and image pfobjects array. Check if saved object is last in array,
+        
+        // If true, save story object
+        
+        // draw story -> image relation
+        
+        // When done, dismiss view controller.
+        
+//        var newStory = PFObject(className: "Story")
+//        newStory["author"] = PFUser.currentUser()
+//        if self.storyTextView.text == nil{
+//            newStory["storyText"] = ""
+//        }
+//        else{
+//            newStory["storyText"] = self.storyTextView.text
+//        }
+//        newStory.saveInBackgroundWithBlock({
+//            (success, error) -> Void in
+//            if error == nil{
+//                for image in self.imageArray{
+//                    var newImage = PFObject(className: "Image")
+//                    newImage["author"] = PFUser.currentUser()
+//                    var imageData = UIImagePNGRepresentation(image as! UIImage)
+//                    newImage["imageFile"] = PFFile(data: imageData)
+//                    self.imagePFObjectArray.addObject(newImage)
+//                    newImage.saveInBackgroundWithBlock({
+//                        (success, error) -> Void in
+//                        if error == nil{
+//                            var storiesRelation:PFRelation = newImage.relationForKey("stories")
+//                            storiesRelation.addObject(newStory)
+//                            newImage.saveInBackgroundWithBlock({
+//                                (success, error) -> Void in
+//                                if error == nil{
+//                                    println("story relation saved")
+//                                    if image as! UIImage == self.imageArray.lastObject as! UIImage{
+//                                        if self.soundFileURL != nil{
+//                                            var audioFile = NSData(contentsOfURL: self.soundFileURL)
+//                                            newStory["storyAudio"] = PFFile(data: audioFile!)
+//                                        }
+//                                        newStory.saveInBackgroundWithBlock({
+//                                            (success, error) -> Void in
+//                                            if error == nil{
+//                                                println("saved!")
+//                                                var imagesRelation:PFRelation = newStory.relationForKey("storyImages")
+//                                                for imagePFObject in self.imagePFObjectArray{
+//                                                    imagesRelation.addObject(imagePFObject as! PFObject)
+//                                                }
+//                                                newStory.saveInBackgroundWithBlock({
+//                                                    (success, error) -> Void in
+//                                                    if error == nil{
+//                                                        println("image relation saved")
+//                                                        self.dismissViewControllerAnimated(true, completion: nil)
+//                                                    }
+//                                                    else{
+//                                                        println()
+//                                                    }
+//                                                })
+//                                                
+//                                                
+//                                            }
+//                                            else{
+//                                                println(error)
+//                                            }
+//                                            
+//                                        })
+//                                        println(newStory)
+//                                    }
+//                                }
+//                                else{
+//                                }
+//                            })
+//                        }
+//                        else{
+//                        }
+//                    })
+//                    
+//                }
+//            }
+//            else{
+//            
+//            }
+//        })
+
+    }
+    
+    func saveImageObjectOnParse(imageObject:PFObject){
+        imageObject.saveInBackgroundWithBlock({
             (success, error) -> Void in
             if error == nil{
-                for image in self.imageArray{
-                    var newImage = PFObject(className: "Image")
-                    newImage["author"] = PFUser.currentUser()
-                    var imageData = UIImagePNGRepresentation(image as! UIImage)
-                    newImage["imageFile"] = PFFile(data: imageData)
-                    self.imagePFObjectArray.addObject(newImage)
-                    newImage.saveInBackgroundWithBlock({
-                        (success, error) -> Void in
-                        if error == nil{
-                            var storiesRelation:PFRelation = newImage.relationForKey("stories")
-                            storiesRelation.addObject(newStory)
-                            newImage.saveInBackgroundWithBlock({
-                                (success, error) -> Void in
-                                if error == nil{
-                                    println("story relation saved")
-                                    if image as! UIImage == self.imageArray.lastObject as! UIImage{
-                                        if self.soundFileURL != nil{
-                                            var audioFile = NSData(contentsOfURL: self.soundFileURL)
-                                            newStory["storyAudio"] = PFFile(data: audioFile!)
-                                        }
-                                        newStory.saveInBackgroundWithBlock({
-                                            (success, error) -> Void in
-                                            if error == nil{
-                                                println("saved!")
-                                                var imagesRelation:PFRelation = newStory.relationForKey("storyImages")
-                                                for imagePFObject in self.imagePFObjectArray{
-                                                    imagesRelation.addObject(imagePFObject as! PFObject)
-                                                }
-                                                newStory.saveInBackgroundWithBlock({
-                                                    (success, error) -> Void in
-                                                    if error == nil{
-                                                        println("image relation saved")
-                                                        self.dismissViewControllerAnimated(true, completion: nil)
-                                                    }
-                                                    else{
-                                                        println()
-                                                    }
-                                                })
-                                                
-                                                
-                                            }
-                                            else{
-                                                println(error)
-                                            }
-                                            
-                                        })
-                                        println(newStory)
-                                    }
-                                }
-                                else{
-                                }
-                            })
-                        }
-                        else{
-                        }
-                    })
-                    
+                var indexOfCurrentImageObject = self.imagePFObjectArray.indexOfObject(imageObject)
+                if indexOfCurrentImageObject == self.imagePFObjectArray.count - 1{
+                    self.saveStoryObjectOnParse()
+                }
+                else{
+                    self.saveImageObjectOnParse(self.imagePFObjectArray[++indexOfCurrentImageObject] as! PFObject)
                 }
             }
             else{
-            
+                println("image object save failed: \(error)")
             }
         })
-
+    }
+    
+    func saveStoryObjectOnParse(){
+        var storyObject = PFObject(className: "Story")
+        storyObject["author"] = PFUser.currentUser()
+        storyObject["storyText"] = self.storyTextView.text
+        storyObject["storyAudio"] = PFFile(data: NSData(contentsOfURL: self.soundFileURL)!)
+        var imagesRelation:PFRelation = storyObject.relationForKey("storyImages")
+        for imageObject in self.imagePFObjectArray{
+            imagesRelation.addObject(imageObject as! PFObject)
+        }
+        storyObject.saveInBackgroundWithBlock({
+            (success, error) -> Void in
+            if error == nil{
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            else{
+                println("story object save failed: \(error)")
+            }
+        })
     }
     
     func takePhotoButtonPressed(){

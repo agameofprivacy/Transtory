@@ -10,5 +10,6 @@ pod 'SHUImagePickerController'
 pod 'GCPlaceholderTextView'
 pod 'MBProgressHUD'
 pod 'DateTools'
+pod 'Atlas'
 
 end

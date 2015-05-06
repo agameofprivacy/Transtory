@@ -13,20 +13,21 @@ class StoriesTabViewController: UIViewController, UITableViewDelegate, UITableVi
 
     var storiesTableViewController:UITableViewController = UITableViewController()
     var stories:[PFObject] = []
-    var storiesImages:NSMutableArray = NSMutableArray()
+    var storiesImages:[[UIImage]] = []
     var storiesImagesLoaded:[Bool] = []
-    
+    var temporaryStoriesImages:[[UIImage]] = []
     var audioPlayer:AVAudioPlayer!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addChildViewController(self.storiesTableViewController)
-        self.navigationItem.title = "Stories"
+        self.navigationItem.title = "Transtories"
+//        var profileButton = UIBarButtonItem(image: UIImage(named: "profileIcon"), style: UIBarButtonItemStyle.Plain, target: self, action: "profileButtonTapped")
         
         var profileButton = UIBarButtonItem(title: "Profile", style: UIBarButtonItemStyle.Plain, target: self, action: "profileButtonTapped")
         self.navigationItem.leftBarButtonItem = profileButton
         
-        var newStoryButton = UIBarButtonItem(title: "New Story", style: UIBarButtonItemStyle.Plain, target: self, action: "newStoryButtonTapped")
+        var newStoryButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "newStoryButtonTapped")
         self.navigationItem.rightBarButtonItem = newStoryButton
         
         self.storiesTableViewController.refreshControl = UIRefreshControl()
@@ -48,18 +49,27 @@ class StoriesTabViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.usernameLabel.text = (story["author"] as! PFUser).username
         cell.timeAgoLabel.text = story.createdAt?.timeAgoSinceNow().lowercaseString
         cell.storyTextLabel.text = story["storyText"] as? String
-        if self.storiesImagesLoaded[indexPath.row]{
-            var imagesArray = self.storiesImages[indexPath.row] as! [UIImage]
-            if imagesArray.count > 0{
-                cell.storyImageView.image = imagesArray[0]
-            }
+        var imagesArray = self.storiesImages[indexPath.row]
+        if imagesArray.count > 0{
+            cell.storyImageView.image = imagesArray[0]
         }
-        var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "storyImageSwiped:")
-        cell.storyImageView.addGestureRecognizer(panGestureRecognizer)
-        println(story["storyAudio"])
+//        var panGestureRecognizer = UIPanGestureRecognizer(target: self, action: "storyImagePanned:")
+//        cell.storyImageView.addGestureRecognizer(panGestureRecognizer)
+
+        var swipeRightGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "storyImageSwipedRight:")
+        swipeRightGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Right
+        cell.storyImageView.addGestureRecognizer(swipeRightGestureRecognizer)
+
+        var swipeLeftGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "storyImageSwipedLeft:")
+        swipeRightGestureRecognizer.direction = UISwipeGestureRecognizerDirection.Left
+        cell.storyImageView.addGestureRecognizer(swipeLeftGestureRecognizer)
+        
+//        var longPressGestureRecognizer = UILongPressGestureRecognizer(target: self, action: "storyImageLongPressed:")
+//        cell.storyImageView.addGestureRecognizer(longPressGestureRecognizer)
+        
         if story["storyAudio"] != nil{
-            var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "playAudioButtonPressed:")
-            cell.playStoryAudioButton.addGestureRecognizer(tapGestureRecognizer)
+            var playStoryAudioTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "playAudioButtonPressed:")
+            cell.playStoryAudioButton.addGestureRecognizer(playStoryAudioTapGestureRecognizer)
             cell.playStoryAudioButton.hidden = false
         }
         else{
@@ -78,41 +88,41 @@ class StoriesTabViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return UIScreen.mainScreen().bounds.width + 80
+        return UIScreen.mainScreen().bounds.width + 100
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (!self.storiesImagesLoaded[indexPath.row]){
-            var imagesRelation:PFRelation = self.stories[indexPath.row].relationForKey("storyImages")
-            var imagesQuery:PFQuery = imagesRelation.query()!
-            imagesQuery.findObjectsInBackgroundWithBlock({
-                (objects, error) -> Void in
-                if error == nil{
-                    var imageArray:[UIImage] = []
-                    println(objects!.count)
-                    for object in objects as! [PFObject]{
-                        var imageFile:PFFile = object["imageFile"] as! PFFile
-                        imageFile.getDataInBackgroundWithBlock({
-                            (data, error) -> Void in
-                            if error == nil{
-                                var image = UIImage(data: data!)
-                                var finalImage = UIImage(CGImage: image!.CGImage, scale: UIScreen.mainScreen().scale, orientation: UIImageOrientation.LeftMirrored)
-                                imageArray.append(finalImage!)
-                                if object == (objects as! [PFObject]).last{
-                                    self.storiesImages.insertObject(imageArray, atIndex: indexPath.row)
-                                    self.storiesImagesLoaded.insert(true, atIndex: indexPath.row)
-                                    self.storiesTableViewController.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
-                                }
-                            }
-                            else{
-                                println("failed")
-                            }
-                        })
-                    }
-                }
-            })
-        }
-    }
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+//        if (!self.storiesImagesLoaded[indexPath.row]){
+//            var imagesRelation:PFRelation = self.stories[indexPath.row].relationForKey("storyImages")
+//            var imagesQuery:PFQuery = imagesRelation.query()!
+//            imagesQuery.findObjectsInBackgroundWithBlock({
+//                (objects, error) -> Void in
+//                if error == nil{
+//                    var imageArray:[UIImage] = []
+//                    println(objects!.count)
+//                    for object in objects as! [PFObject]{
+//                        var imageFile:PFFile = object["imageFile"] as! PFFile
+//                        imageFile.getDataInBackgroundWithBlock({
+//                            (data, error) -> Void in
+//                            if error == nil{
+//                                var image = UIImage(data: data!)
+//                                var finalImage = UIImage(CGImage: image!.CGImage, scale: UIScreen.mainScreen().scale, orientation: UIImageOrientation.LeftMirrored)
+//                                imageArray.append(finalImage!)
+//                                if object == (objects as! [PFObject]).last{
+//                                    self.storiesImages.insertObject(imageArray, atIndex: indexPath.row)
+//                                    self.storiesImagesLoaded.insert(true, atIndex: indexPath.row)
+//                                    self.storiesTableViewController.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+//                                }
+//                            }
+//                            else{
+//                                println("failed")
+//                            }
+//                        })
+//                    }
+//                }
+//            })
+//        }
+//    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -131,9 +141,10 @@ class StoriesTabViewController: UIViewController, UITableViewDelegate, UITableVi
     }
 
     func loadStories(context:String){
-
+        println("load stories")
         self.storiesTableViewController.refreshControl?.beginRefreshing()
         var storyQuery = PFQuery(className: "Story")
+        storyQuery.limit = 10
         storyQuery.orderByDescending("createdAt")
         if context == "old"{
             if !self.stories.isEmpty{
@@ -148,34 +159,20 @@ class StoriesTabViewController: UIViewController, UITableViewDelegate, UITableVi
         storyQuery.findObjectsInBackgroundWithBlock({
             (objects, error) -> Void in
             if error == nil{
-                var boolArray:[Bool] = Array<Bool>(count: objects!.count, repeatedValue: false)
-                var imageArrayArray:[[UIImage]] = Array<[UIImage]>(count: objects!.count, repeatedValue: [])
+                var story = (objects as! [PFObject]).first
+                self.temporaryStoriesImages.removeAll(keepCapacity: false)
+                self.temporaryStoriesImages = Array<[UIImage]>(count: objects!.count, repeatedValue: [])
                 if context == "old"{
                     self.stories.extend(objects as! [PFObject])
-                    self.storiesImagesLoaded.extend(boolArray)
-                    self.storiesImages.addObjectsFromArray(imageArrayArray)
                 }
                 else if context == "new"{
                     println("NEW")
                     self.stories.splice(objects as! [PFObject], atIndex: 0)
-                    self.storiesImagesLoaded.splice(boolArray, atIndex: 0)
-                    var tempArray = self.storiesImages.subarrayWithRange(NSMakeRange(0, self.storiesImages.count))
-                    println(tempArray)
-                    self.storiesImages.replaceObjectsInRange(NSMakeRange(0, objects!.count), withObjectsFromArray: imageArrayArray)
-
-//                    self.storiesImages.replaceObjectsInRange(NSMakeRange(objects!.count, tempArray.count), withObjectsFromArray: tempArray)
-                    println(self.storiesImages)
-
                 }
                 else{
                     self.stories = objects as! [PFObject]
-                    self.storiesImagesLoaded = boolArray
-//                    self.storiesImages.addObjectsFromArray(imageArrayArray)
                 }
-                println(self.stories)
-                self.storiesTableViewController.refreshControl?.endRefreshing()
-//                self.storiesTableViewController.tableView.reloadData()
-                self.storiesTableViewController.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+                self.loadStoryImages(story!, stories: objects as! [PFObject], context:context)
             }
             else{
                 println("find operation failed")
@@ -183,19 +180,116 @@ class StoriesTabViewController: UIViewController, UITableViewDelegate, UITableVi
         })
     }
     
-    func storyImageSwiped(sender:UIPanGestureRecognizer){
+    func loadStoryImages(story:PFObject, stories:[PFObject], context:String){
+        println("load images")
+        var imagesRelation:PFRelation = story.relationForKey("storyImages")
+        var imagesQuery:PFQuery = imagesRelation.query()!
+        imagesQuery.findObjectsInBackgroundWithBlock({
+            (objects, error) -> Void in
+            if error == nil{
+                if story == stories.last{
+                    
+                }
+                else{
+                    var indexOfStoryToLoadImagesFor = find(stories, story)! + 1
+                    self.loadStoryImages(stories[indexOfStoryToLoadImagesFor], stories: stories, context:context)
+                }
+                var object = (objects as! [PFObject]).first
+                var storyIndex = find(objects as! [PFObject], object!)
+                self.loadImageDataFromObject(object!, objects: objects as! [PFObject], storyIndex: storyIndex!, context:context)
+            }
+            else{
+                
+            }
+        })
+
+    }
+    
+    
+    func loadImageDataFromObject(object:PFObject, objects:[PFObject], storyIndex:Int, context:String){
+        println("load images data")
+        var imageFile:PFFile = object["imageFile"] as! PFFile
+        imageFile.getDataInBackgroundWithBlock({
+            (data, error) -> Void in
+            if error == nil{
+                var image = UIImage(data: data!)
+                var finalImage = UIImage(CGImage: image!.CGImage, scale: UIScreen.mainScreen().scale, orientation: UIImageOrientation.LeftMirrored)
+                self.temporaryStoriesImages[storyIndex].append(finalImage!)
+//                println(self.temporaryStoriesImages[storyIndex])
+                if object == objects.last{
+//                    self.storiesTableViewController.tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.None)
+//                    println(self.temporaryStoriesImages)
+
+                    if context == "old"{
+                        self.storiesImages.extend(self.temporaryStoriesImages)
+                    }
+                    else if context == "new"{
+                        println("NEW")
+                        self.storiesImages.splice(self.temporaryStoriesImages, atIndex: 0)
+                    }
+                    else{
+                        self.storiesImages.extend(self.temporaryStoriesImages)
+                    }
+                    self.storiesTableViewController.refreshControl?.endRefreshing()
+                    self.storiesTableViewController.tableView.reloadSections(NSIndexSet(index: 0), withRowAnimation: UITableViewRowAnimation.Automatic)
+
+                }
+                else{
+                    var indexOfImageToLoad = find(objects, object)! + 1
+                    self.loadImageDataFromObject(objects[indexOfImageToLoad], objects: objects, storyIndex:storyIndex, context:context)
+                }
+            }
+            else{
+                println("failed")
+            }
+        })
+
+    }
+    
+    func storyImagePanned(sender:UIPanGestureRecognizer){
         println("panned!")
         var currentIndexPath = self.storiesTableViewController.tableView.indexPathForRowAtPoint(sender.locationInView(self.storiesTableViewController.tableView)) as NSIndexPath!
         var storyImageView = sender.view as! UIImageView
         let translation = sender.translationInView(self.view)
         var screenWidth = UIScreen.mainScreen().bounds.width
-        var imageArray = self.storiesImages[currentIndexPath.row] as! [UIImage]
+        var imageArray = self.storiesImages[currentIndexPath.row]
         println(imageArray)
         var gap = Int((UIScreen.mainScreen().bounds.width)) / imageArray.count
         var imageNumber = abs(Int(translation.x)) / gap
         println("gap: \(gap); imageNumber:\(imageNumber); translation:\(translation.x)")
         storyImageView.image = imageArray[imageNumber] as UIImage
     }
+    
+    func storyImageSwipedRight(sender:UISwipeGestureRecognizer){
+        println("Story Image Swiped Right")
+
+        var currentIndexPath = self.storiesTableViewController.tableView.indexPathForRowAtPoint(sender.locationInView(self.storiesTableViewController.tableView)) as NSIndexPath!
+        var storyImageView = sender.view as! UIImageView
+        var imageArray = self.storiesImages[currentIndexPath.row]
+        var currentImageIndex = find(imageArray, storyImageView.image!)!
+        if currentImageIndex == imageArray.count - 1{
+            storyImageView.image = imageArray[0]
+        }
+        else{
+            storyImageView.image = imageArray[currentImageIndex + 1]
+        }
+    }
+
+    func storyImageSwipedLeft(sender:UISwipeGestureRecognizer){
+        println("Story Image Swiped Left")
+        
+        var currentIndexPath = self.storiesTableViewController.tableView.indexPathForRowAtPoint(sender.locationInView(self.storiesTableViewController.tableView)) as NSIndexPath!
+        var storyImageView = sender.view as! UIImageView
+        var imageArray = self.storiesImages[currentIndexPath.row]
+        var currentImageIndex = find(imageArray, storyImageView.image!)!
+        if currentImageIndex == 0{
+            storyImageView.image = imageArray.last
+        }
+        else{
+            storyImageView.image = imageArray[currentImageIndex - 1]
+        }
+    }
+
     
     func playAudioButtonPressed(sender:UITapGestureRecognizer){
         println("Play Audio Button Pressed")
@@ -214,6 +308,12 @@ class StoriesTabViewController: UIViewController, UITableViewDelegate, UITableVi
         })
 
     }
+    
+//    func storyImageLongPressed(sender:UILongPressGestureRecognizer){
+//        println("Story Image Long-Pressed")
+//        var currentIndexPath = self.storiesTableViewController.tableView.indexPathForRowAtPoint(sender.locationInView(self.storiesTableViewController.tableView)) as NSIndexPath!
+//        var currentCell = self.storiesTableViewController.tableView.cellForRowAtIndexPath(currentIndexPath) as! StoryTableViewCell
+//    }
     
     func play(audioData:NSData!) {
         println("playing")
@@ -249,6 +349,9 @@ class StoriesTabViewController: UIViewController, UITableViewDelegate, UITableVi
         self.audioPlayer = nil
     }
     
+    func storyImageTapped(){
+        println("tapped")
+    }
     
     func loadNewStories(){
         self.loadStories("")

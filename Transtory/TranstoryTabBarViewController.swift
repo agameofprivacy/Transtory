@@ -18,27 +18,27 @@ class TranstoryTabBarViewController: UITabBarController {
             // Instantiate UITabBarItem
             var tabItem : UITabBarItem = self.tabBar.items![index] as! UITabBarItem
             
-            // Switch assets for UITabBarItem in order
-//            switch index{
-//                
-//                // Stories
-//            case 0:
-//                tabItem.selectedImage = UIImage(named: "storiesSelected")
-//                tabItem.image = UIImage(named: "storiesUnselected")
-//                
-//                // Chat
-//            case 1:
-//                tabItem.selectedImage = UIImage(named: "chatSelected")
-//                tabItem.image = UIImage(named: "chatUnselected")
-//                
-//                // Resources
-//            case 2:
-//                tabItem.selectedImage = UIImage(named: "resourcesSelected")
-//                tabItem.image = UIImage(named: "resourcesUnselected")
-//                
-//            default:
-//                println("no image resourced")
-//            }
+//             Switch assets for UITabBarItem in order
+            switch index{
+                
+                // Stories
+            case 0:
+                tabItem.selectedImage = UIImage(named: "storiesSelected")
+                tabItem.image = UIImage(named: "storiesUnselected")
+                
+                // Chat
+            case 1:
+                tabItem.selectedImage = UIImage(named: "chatSelected")
+                tabItem.image = UIImage(named: "chatUnselected")
+                
+                // Resources
+            case 2:
+                tabItem.selectedImage = UIImage(named: "resourcesSelected")
+                tabItem.image = UIImage(named: "resourcesUnselected")
+                
+            default:
+                println("no image resourced")
+            }
         }
     }
 

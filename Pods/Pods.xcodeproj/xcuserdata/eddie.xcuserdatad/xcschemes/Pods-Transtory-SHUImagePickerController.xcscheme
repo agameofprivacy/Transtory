@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6EA8AB68004C90A35C317D61"
+               BlueprintIdentifier = "9561A607BEA5B5EFC07B1BCE"
                BuildableName = "libPods-Transtory-SHUImagePickerController.a"
                BlueprintName = "Pods-Transtory-SHUImagePickerController"
                ReferencedContainer = "container:Pods.xcodeproj">

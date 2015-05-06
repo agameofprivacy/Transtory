@@ -27,6 +27,7 @@
 		2C5B11081AF413A500145AE4 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C5B11071AF413A500145AE4 /* Images.xcassets */; };
 		2C5B110B1AF413A500145AE4 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5B11091AF413A500145AE4 /* LaunchScreen.xib */; };
 		2C5B11171AF413A500145AE4 /* TranstoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5B11161AF413A500145AE4 /* TranstoryTests.swift */; };
+		2CA2AFBA1AF635E1003F4E01 /* QuestionnaireTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA2AFB91AF635E1003F4E01 /* QuestionnaireTableViewCell.swift */; };
 		2CFE5F011AF56EB30056E109 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE5F001AF56EB30056E109 /* LoginViewController.swift */; };
 		2CFE5F031AF587200056E109 /* CapturedImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE5F021AF587200056E109 /* CapturedImageCollectionViewCell.swift */; };
 		2CFE5F051AF5A18E0056E109 /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE5F041AF5A18E0056E109 /* StoryTableViewCell.swift */; };
@@ -71,6 +72,7 @@
 		2C5B11101AF413A500145AE4 /* TranstoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TranstoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C5B11151AF413A500145AE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C5B11161AF413A500145AE4 /* TranstoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranstoryTests.swift; sourceTree = "<group>"; };
+		2CA2AFB91AF635E1003F4E01 /* QuestionnaireTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionnaireTableViewCell.swift; sourceTree = "<group>"; };
 		2CFE5F001AF56EB30056E109 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2CFE5F021AF587200056E109 /* CapturedImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CapturedImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		2CFE5F041AF5A18E0056E109 /* StoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				2C16944F1AF4190C00F3094C /* ChatTabViewController.swift */,
+				2CA2AFB91AF635E1003F4E01 /* QuestionnaireTableViewCell.swift */,
 				2C1694611AF422BB00F3094C /* NewChatViewController.swift */,
 				2C16945F1AF4229D00F3094C /* TopicsSurveyViewController.swift */,
 			);
@@ -378,6 +381,7 @@
 				2CFE5F011AF56EB30056E109 /* LoginViewController.swift in Sources */,
 				2C5B11011AF413A500145AE4 /* Transtory.xcdatamodeld in Sources */,
 				2C1694601AF4229D00F3094C /* TopicsSurveyViewController.swift in Sources */,
+				2CA2AFBA1AF635E1003F4E01 /* QuestionnaireTableViewCell.swift in Sources */,
 				2C5B10FE1AF413A500145AE4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

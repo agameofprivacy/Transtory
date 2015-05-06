@@ -6,6 +6,12 @@
 // project.
 
 
+// Atlas
+#define COCOAPODS_POD_AVAILABLE_Atlas
+#define COCOAPODS_VERSION_MAJOR_Atlas 1
+#define COCOAPODS_VERSION_MINOR_Atlas 0
+#define COCOAPODS_VERSION_PATCH_Atlas 5
+
 // Bolts
 #define COCOAPODS_POD_AVAILABLE_Bolts
 #define COCOAPODS_VERSION_MAJOR_Bolts 1
@@ -52,7 +58,7 @@
 #define COCOAPODS_POD_AVAILABLE_Parse
 #define COCOAPODS_VERSION_MAJOR_Parse 1
 #define COCOAPODS_VERSION_MINOR_Parse 7
-#define COCOAPODS_VERSION_PATCH_Parse 2
+#define COCOAPODS_VERSION_PATCH_Parse 1
 
 // SHUImagePickerController
 #define COCOAPODS_POD_AVAILABLE_SHUImagePickerController

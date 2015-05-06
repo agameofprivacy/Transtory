@@ -30,6 +30,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         UIStyleController.applyStyle()
         
+//        let manager = CLLocationManager()
+//        if CLLocationManager.locationServicesEnabled() {
+//            manager.startUpdatingLocation()
+//        }
+//        if CLLocationManager.authorizationStatus() == CLAuthorizationStatus.NotDetermined {
+//            println("not deterimined")
+//            manager.requestWhenInUseAuthorization()
+//        }
+
+        
         return true
     }
 

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8DDAAB4B139ECEC2A09339D2"
+               BlueprintIdentifier = "96C800EE3786967F03D3D5EB"
                BuildableName = "libPods-Transtory-MBProgressHUD.a"
                BlueprintName = "Pods-Transtory-MBProgressHUD"
                ReferencedContainer = "container:Pods.xcodeproj">
